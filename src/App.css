@@ -3,8 +3,8 @@
 }
 
 .mainbg{
-  height: 300px;
-  background-image: url('./beach2.PNG');
+  height: 400px;
+  background-image: url('../public/img/beach2.PNG');
   background-size: cover;
   background-position: center;
 }
