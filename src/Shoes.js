@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import {Navbar, Container, Nav, Row, Col, Modal} from 'react-bootstrap'
+import {Col} from 'react-bootstrap'
 
 function Shoes(props){
   return(
