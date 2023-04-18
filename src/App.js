@@ -44,7 +44,11 @@ function App() {
         <Route path="/detail/:id" element={<Detail shoes={shoes} />}/>
       </Routes>
 
-      <Button>가나다순 정렬</Button>
+      <Button onClick={()=>{
+        let copy = [...shoes]
+        copy.sort((a, b) => a.title.localeCompare(b.title)); //a,b를 비교하여 b가 어디에 와야하는지를 반환환
+        setshoes(copy);
+      }}>title 가나다순 정렬</Button>
 
     </div>
   );
