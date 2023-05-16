@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import {Navbar, Container, Nav, Row, Button} from 'react-bootstrap'
-import data from './data.js'
-import Shoes from './Shoes.js'
+import data from './data/data.js'
+import Shoes from './components/Shoes.js'
 import Detail from './pages/Detail.js'
 import { useState } from 'react';
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
@@ -22,7 +22,7 @@ function App() {
             <Nav.Link href="#mens">MENS</Nav.Link>
             <Nav.Link href="#womens">WOMENS</Nav.Link>
             <Nav.Link href="#kids">KIDS</Nav.Link>
-            <Nav.Link onClick={()=> {navi('/detail')}}>DETAIL</Nav.Link>
+            <Nav.Link onClick={()=> {navi('/detail/1')}}>DETAIL</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -36,11 +36,14 @@ function App() {
             <Row>
                 {data.map(function(a, i){
                   return(
-                <Shoes i={i} shoes={shoes}/>
+                    <Shoes i={i} shoes={shoes}/>
                   )
                 })}
             </Row>
           </Container> </div> } />
+        <Route path='*' element={<>
+          없는 페이지
+        </>}/>
         <Route path="/detail/:id" element={<Detail shoes={shoes} />}/>
       </Routes>
 
