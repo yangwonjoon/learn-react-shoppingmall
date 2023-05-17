@@ -1,14 +1,25 @@
 import { Outlet, useParams } from 'react-router-dom';
 import '../App.css';
 import styled from 'styled-components';
+import { useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import { useState } from 'react';
 
 let Yellowbtn = styled.button`
-  background : ${ props => props.bg};
+  background : ${ props => props.bg}; 
   color : ${ props => props.bg == 'blue' ? 'white' : 'black'}
 `
+//그냥 문법임 이해 ㄴㄴ
 
 function Detail(props){
 
+  useEffect(()=>{
+    setTimeout(() => {
+      setalert(false)
+    }, 2000);
+  })
+
+  let [alert,setalert] = useState(true)
   let {id} = useParams();
   let changeshoes = props.shoes.find(function(x){
     return x.id == id
@@ -17,6 +28,13 @@ function Detail(props){
   return(
     <>
     <div className="container">
+      <div>
+        {
+          alert == true
+          ? <Button>마감세일 2초후에 사라집니다</Button> 
+          :null
+        }
+      </div>
       <div className="row">
         <div className="col-md-6">
           <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
